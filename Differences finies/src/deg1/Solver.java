@@ -6,6 +6,8 @@
 package deg1;
 
 import java.lang.reflect.Method;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.ujmp.core.DenseMatrix;
 import org.ujmp.core.Matrix;
 
@@ -17,12 +19,18 @@ public class Solver implements SolverInterface{
 
     @Override
     public Matrix resolve(String fonction, double a, double b, int n) {
-        Matrix dense = DenseMatrix.Factory.zeros(n-1,1);
-        Method method = Fonction.class.getMethod(fonction, double.class);
-        for (int i = 0; i <n-1; i++){
-            
+        try {
+            Matrix dense = DenseMatrix.Factory.zeros(n-1,1);
+            Method method = Fonction.class.getMethod(fonction, double.class);
+            for (int i = 0; i <n-1; i++){
+                
+            }
+            return null;
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (SecurityException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
         }
-        return null;
     }
 
     

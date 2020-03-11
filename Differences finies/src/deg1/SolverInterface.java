@@ -16,5 +16,5 @@ public interface SolverInterface {
     /*n+1 représente le nombre de points, a et b représentent u(0) et 
     u(1), fonction représente le nom de la fonction (statique) qu'on veut appeler,
     l'ensemble des fonctions : Fonction*/
-    Matrix resolve(String fonction, int n, double a, double b);
+    Matrix resolve(String fonction, double a, double b, int n);
 }
