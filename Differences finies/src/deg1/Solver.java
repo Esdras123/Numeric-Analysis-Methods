@@ -16,7 +16,7 @@ import org.ujmp.core.Matrix;
 public class Solver implements SolverInterface{
 
     @Override
-    public Matrix resolve(int n, double a, double b, String fonction) {
+    public Matrix resolve(String fonction, double a, double b, int n) {
         Matrix dense = DenseMatrix.Factory.zeros(n-1,1);
         Method method = Fonction.class.getMethod(fonction, double.class);
         for (int i = 0; i <n-1; i++){
