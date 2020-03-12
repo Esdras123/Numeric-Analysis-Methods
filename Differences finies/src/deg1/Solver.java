@@ -11,24 +11,49 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import org.ujmp.core.DenseMatrix;
 import org.ujmp.core.Matrix;
+import org.ujmp.core.SparseMatrix;
 
 /**
  *
  * @author ESDRAS
  */
 public class Solver implements SolverInterface{
-
+    
+    public static void main(String[] args){
+        Solver solv = new Solver();
+        System.out.println(solv.resolveLU("constante", 1, 1, 20));
+    }
     @Override
     public Matrix resolveLU(String fonction, double a, double b, int n) {
         try {
             Matrix f = DenseMatrix.Factory.zeros(n-1,1);
+            SparseMatrix matrix = SparseMatrix.Factory.zeros(n-1, n-1);
             
-            //remplissage de f
+            //remplissage de f et de la matrice creuse
             Method method = Fonction.class.getMethod(fonction, double.class);
             for (int i = 0; i <n-1; i++){
-                f.setAsDouble((Double) method.invoke(null, ((double) i)/n), i, 0);
+                if (i == 0)
+                    f.setAsDouble(((Double) method.invoke(null, ((double) i)/n))/Math.pow(n, 2) + a, i, 0);
+                else if (i == n-2)
+                    f.setAsDouble(((Double) method.invoke(null, ((double) i)/n))/Math.pow(n, 2) + b, i, 0);
+                else
+                    f.setAsDouble(((Double) method.invoke(null, ((double) i)/n))/Math.pow(n, 2), i, 0);
+                
+                matrix.setAsDouble(2, i,i);
+                if (i < n-2){
+                    matrix.setAsDouble(-1, i+1,i);
+                    matrix.setAsDouble(-1, i, i+1);
+                }
             }
-            return null;
+            
+            //System.out.println(matrix);
+            //System.out.println(f);
+            //resolution matrix= lu x = u^-1 (l^-1 f)
+            Matrix[] luDecomp = matrix.lu();
+            //System.out.println(luDecomp[1]);
+            Matrix sol = luDecomp[1].inv().mtimes((luDecomp[0].inv().mtimes(f)));
+
+            return sol;
         } catch (NoSuchMethodException ex) {
             Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
         } catch (SecurityException ex) {

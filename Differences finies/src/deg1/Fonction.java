@@ -13,4 +13,12 @@ public class Fonction {
     /*classe contenant l'ensemble des fonctions à tester. Chaque fonction est 
     statique et a un seul paramètre qui est un double
     */
+    
+    public static double carre(double x){
+        return x*x;
+    }
+    
+    public static double constante(double x) {
+        return 0;
+    }
 }
