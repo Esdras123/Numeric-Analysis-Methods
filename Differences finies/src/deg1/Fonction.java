@@ -21,4 +21,8 @@ public class Fonction {
     public static double constante(double x) {
         return 0;
     }
+    
+    public static double doublex(double x){
+        return 2 * x;
+    }
 }

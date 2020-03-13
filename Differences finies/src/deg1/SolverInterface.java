@@ -14,8 +14,10 @@ import org.ujmp.core.Matrix;
 public interface SolverInterface {
     
     /*n+1 représente le nombre de points, a et b représentent u(0) et 
-    u(1), fonction représente le nom de la fonction (statique) qu'on veut appeler,
-    l'ensemble des fonctions : Fonction*/
+    u(1),  La chaine de caracteres fonction est sous la forme
+    "fonction" si l'on veut appeler f(x) et "a:fonction1;b:fonction2;...." 
+    si l'on souhaite calculer a*f1(x)+b*f2(x)+....,
+    l'ensemble des fonctions est dans Fonction. Chaque fonction est statique.*/
     Matrix resolveLU(String fonction, double a, double b, int n);
     Matrix resolveIT(String fonction, double a, double b, int n);
 }
