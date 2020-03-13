@@ -18,6 +18,6 @@ public interface SolverInterface {
     "fonction" si l'on veut appeler f(x) et "a:fonction1;b:fonction2;...." 
     si l'on souhaite calculer a*f1(x)+b*f2(x)+....,
     l'ensemble des fonctions est dans Fonction. Chaque fonction est statique.*/
-    Matrix resolveLU(String fonction, double a, double b, int n);
-    Matrix resolveIT(String fonction, double a, double b, int n);
+    Matrix resolveDirecte(String fonction, double a, double b, int n);
+    Matrix resolveIterative(String fonction, double a, double b, int n);
 }

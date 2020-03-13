@@ -22,10 +22,10 @@ public class Solver implements SolverInterface{
     
     public static void main(String[] args){
         Solver solv = new Solver();
-        System.out.println(solv.resolveLU("doublex;3:carre", 0, 1, 10));
+        System.out.println(solv.resolveDirecte("doublex", 0, 1, 10));
     }
     @Override
-    public Matrix resolveLU(String fonction, double a, double b, int n) {
+    public Matrix resolveDirecte(String fonction, double a, double b, int n) {
         try {
             Matrix f = DenseMatrix.Factory.zeros(n-1,1);
             SparseMatrix matrix = SparseMatrix.Factory.zeros(n-1, n-1);
@@ -35,11 +35,11 @@ public class Solver implements SolverInterface{
 
             for (int i = 0; i <n-1; i++){
                 if (i == 0)
-                    f.setAsDouble(this.calcVal(((double) i)/n, listeFunc)/Math.pow(n, 2) + a, i, 0);
+                    f.setAsDouble(this.calcVal(((double) i+1)/n, listeFunc)/Math.pow(n, 2) + a, i, 0);
                 else if (i == n-2)
-                    f.setAsDouble(this.calcVal(((double) i)/n, listeFunc)/Math.pow(n, 2) + b, i, 0);
+                    f.setAsDouble(this.calcVal(((double) i+1)/n, listeFunc)/Math.pow(n, 2) + b, i, 0);
                 else
-                    f.setAsDouble(this.calcVal(((double) i)/n, listeFunc)/Math.pow(n, 2), i, 0);
+                    f.setAsDouble(this.calcVal(((double) i+1)/n, listeFunc)/Math.pow(n, 2), i, 0);
                 
                 matrix.setAsDouble(2, i,i);
                 if (i < n-2){
@@ -48,12 +48,16 @@ public class Solver implements SolverInterface{
                 }
             }
             
-            //System.out.println(matrix);
-            //System.out.println(f);
+            System.out.println(matrix);
+            System.out.println(f);
+            
+            /*
             //resolution matrix= lu x = u^-1 (l^-1 f)
             Matrix[] luDecomp = matrix.lu();
             //System.out.println(luDecomp[1]);
-            Matrix sol = luDecomp[1].inv().mtimes((luDecomp[0].inv().mtimes(f)));
+            Matrix sol = luDecomp[1].inv().mtimes((luDecomp[0].inv().mtimes(f)));*/
+            
+            Matrix sol = matrix.solve(f);
 
             return sol;
         } catch (NoSuchMethodException ex) {
@@ -71,7 +75,7 @@ public class Solver implements SolverInterface{
     }
 
     @Override
-    public Matrix resolveIT(String fonction, double a, double b, int n) {
+    public Matrix resolveIterative(String fonction, double a, double b, int n) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
@@ -96,9 +100,7 @@ public class Solver implements SolverInterface{
                 listeFunc.add(new Func(coef, method));
             }
         }
-        for (Func i: listeFunc){
-            System.out.println("coef = " + i.coef + " func = " + i.method.getName());
-        }
+
         return listeFunc;
     }
     
