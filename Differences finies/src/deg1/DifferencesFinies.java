@@ -5,7 +5,11 @@
  */
 package deg1;
 
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Scanner;
+import org.ujmp.core.Matrix;
 
 /**
  *
@@ -16,34 +20,45 @@ public class DifferencesFinies {
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        System.out.println("Donnees de test pour la résolution de l'équation différentielle -u''=f");
-        ArrayList<DonneeTest> donneesTest = GenerationDonnee.getDonneesTest();
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+        System.out.println("Entrez le nombre n correspondant au nombre de points du maillage - 1");
+        Scanner sc = new Scanner(System.in);
+        int n = sc.nextInt();
+        
+        System.out.println(Afficharge.titre("Donnees de test pour la résolution de l'équation différentielle -u''=f"));
 
-        Class solverInterface = Class.forName("equationdeg2.Solver");
+        ArrayList<DonneeTest> donneesTest = GenerationDonnee.getDonneesTest(n);
+
+        Class solverInterface = Class.forName("deg1.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
-        int total = 0, totFalse = 0;
+        int total = 0, totFalseDirec = 0, totFalseIter = 0;
 
         System.out.println(Afficharge.separation());
-        System.out.println(Afficharge.creerLigne("a", "b", "c", "Tolérance", "Résultat attendu", "Résultat obtenu", "Oracle"));
-        for (int i = 0; i < donneesTest.size(); i++) {
-            ArrayList<Double> results = solv.resolve(donneesTest.get(i).donneeEntree.a, donneesTest.get(i).donneeEntree.b, donneesTest.get(i).donneeEntree.c);
-            boolean decision = Test.verify(donneesTest.get(i).donneeEntree, results, donneesTest.get(i).resultatAttendu, donneesTest.get(i).tolerance);
+        System.out.println(Afficharge.creerLigne("f", "a", "b", "Tolérance", "Résultat attendu", "Fonction de test", "Oracle Methode Directe", "Oracle Methode itérative"));
+        for (DonneeTest dt : donneesTest) {
+            Matrix resultsDirecte = solv.resolveDirecte(dt.donneeEntree.f, dt.donneeEntree.a, dt.donneeEntree.b, dt.donneeEntree.n);
+            Matrix resultsIter = solv.resolveIterative(dt.donneeEntree.f, dt.donneeEntree.a, dt.donneeEntree.b, dt.donneeEntree.n);
+            
+            
+            Method method = TestFuncs.class.getMethod(dt.fonctionTest, String.class, Matrix.class, double.class, int.class);
+            
+            boolean decisionDirecte = (boolean) method.invoke(null, dt.resultatAttendu, resultsDirecte, dt.tolerance, dt.donneeEntree.n);
+            boolean decisionIter = (boolean) method.invoke(null, dt.resultatAttendu, resultsIter, dt.tolerance, dt.donneeEntree.n);
             String ra = "null", ro = "null";
-            if(donneesTest.get(i).resultatAttendu != null)
-                ra = donneesTest.get(i).resultatAttendu.toString();
-            if (results!= null)
-                ro = results.toString();
-            System.out.println(Afficharge.creerLigne(Double.toString(donneesTest.get(i).donneeEntree.a), Double.toString(donneesTest.get(i).donneeEntree.b), Double.toString(donneesTest.get(i).donneeEntree.c), Double.toString(donneesTest.get(0).tolerance), ra, ro, Boolean.toString(decision)));
-            if (!decision) {
-                totFalse += 1;
+            
+            System.out.println(Afficharge.creerLigne(dt.donneeEntree.f, Double.toString(dt.donneeEntree.a), Double.toString(dt.donneeEntree.b), Double.toString(dt.tolerance), dt.resultatAttendu, dt.fonctionTest, Boolean.toString(decisionDirecte), Boolean.toString(decisionIter)));
+            if (!decisionDirecte) {
+                totFalseDirec += 1;
+            }
+            if(!decisionIter){
+                totFalseIter += 1;
             }
             total += 1;
 
         }
 
-        System.out.println("Total Tests Ratés: " + totFalse + "/" + " " + total + "             Total Tests Réussis: " + (total - totFalse) + "/" + " " + total);
+        System.out.println("Total Tests Ratés Méthode Directe: " + totFalseDirec + "/" + " " + total + "             Total Tests Ratés Méthode Itérative: " + (totFalseIter) + "/" + " " + total);
 
     }
-    
+
 }
