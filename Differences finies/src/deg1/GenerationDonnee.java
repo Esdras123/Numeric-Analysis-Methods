@@ -5,10 +5,14 @@
  */
 package deg1;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author ESDRAS
  */
 public class GenerationDonnee {
-    
+    public static ArrayList<DonneeTest> getDonneesTest(){
+        return null;
+    }
 }
