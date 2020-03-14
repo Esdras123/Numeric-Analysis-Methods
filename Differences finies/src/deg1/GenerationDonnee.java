@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author ESDRAS
  */
 public class GenerationDonnee {
-    public static ArrayList<DonneeTest> getDonneesTest(){
+    public static ArrayList<DonneeTest> getDonneesTest(int n){
         return null;
     }
 }
