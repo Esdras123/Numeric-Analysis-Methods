@@ -15,7 +15,9 @@ public class FonctionU {
      différents tests. Par exemple si u est la fonction u(x)=x^2, le f correspondant sera la fonction f(x)=2.
     Chaque fonction f associée à une fonction u commence par une constante fixée dans la classe Func
     Ces fonctions sont statiques.*/
-    
+
+    public static double nulle(double x) { return 0;}
+
     public static double cte(double x){
         return 1.0;
     }
@@ -32,6 +34,8 @@ public class FonctionU {
         return Math.pow(x, 3);
     }
     
+    public static double p5x(double x) {return Math.pow(x,5);}
+
     public static double cosx(double x){
         return Math.cos(x);
     }
@@ -43,4 +47,7 @@ public class FonctionU {
     public static double exp(double x){
         return Math.exp(x);
     }
+
+    public static double ln(double x) { return Math.log(x); }
+
 }

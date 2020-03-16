@@ -27,6 +27,8 @@ public class Fonction {
         return 2 * x;
     }
 
+    public static double DRnulle(double x) {return 0.0;}
+
     public static double DRcte(double x) {
         return 0.0;
     }
@@ -43,6 +45,10 @@ public class Fonction {
         return -6*x;
     }
 
+    public static double DRp5x(double x) {
+        return -20*Math.pow(x,3);
+    }
+
     public static double DRcosx(double x) {
         return Math.cos(x);
     }
@@ -53,5 +59,9 @@ public class Fonction {
 
     public static double DRexp(double x) {
         return - Math.exp(x);
+    }
+
+    public static double DRln(double x) {
+        return -(1/Math.pow(x,2));
     }
 }
