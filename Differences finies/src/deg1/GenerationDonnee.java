@@ -9,6 +9,7 @@ import jxl.Sheet;
 import jxl.Workbook;
 import jxl.read.biff.BiffException;
 
+import java.io.Console;
 import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
@@ -19,17 +20,18 @@ public class GenerationDonnee {
         ArrayList<DonneeTest> donneeEntree = new ArrayList<DonneeTest>();
 
         try {
-            Workbook workbook = Workbook.getWorkbook(new File("Excel/donnee.xlsx"));
+            Workbook workbook = Workbook.getWorkbook(new File("Excel/donnee.xls"));
             Sheet sheet = workbook.getSheet(0);
-            int rows = sheet.getRows();
+            int rows = 17;
             int columns = sheet.getColumns();
             for (int i=1; i < rows; i++){
                 donneeEntree.add(
-                        new DonneeTest(sheet.getCell(i,0).getContents(),
+
+                        new DonneeTest(sheet.getCell(0,i).getContents(),
                                 "solve",
-                                sheet.getCell(i,3).getContents(),
-                                Double.parseDouble(sheet.getCell(i,4).getContents()),
-                                sheet.getCell(i,5).getContents(),
+                                sheet.getCell(3,i).getContents(),
+                                Double.parseDouble(sheet.getCell(4,i).getContents()),
+                                sheet.getCell(5,i).getContents(),
                                 n
                                 ));
             }
