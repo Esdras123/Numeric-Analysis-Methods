@@ -23,6 +23,40 @@ public class Fonction {
         return 0;
     }
 
+    public static double nulle(double x) { return 0;}
+
+    public static double cte(double x){
+        return 1.0;
+    }
+
+    public static double simplex(double x){
+        return x;
+    }
+
+    public static double carrex(double x){
+        return Math.pow(x, 2);
+    }
+
+    public static double cubex(double x){
+        return Math.pow(x, 3);
+    }
+
+    public static double p5x(double x) {return Math.pow(x,5);}
+
+    public static double cosx(double x){
+        return Math.cos(x);
+    }
+
+    public static double sinx(double x){
+        return Math.sin(x);
+    }
+
+    public static double exp(double x){
+        return Math.exp(x);
+    }
+
+    public static double ln(double x) { return Math.log(x); }
+
     public static double doublex(double x) {
         return 2 * x;
     }
