@@ -1,10 +1,13 @@
 package deg1;
 
-import java.io.IOException;
-import java.util.ArrayList;
+import javafx.scene.Scene;
+import javafx.scene.chart.LineChart;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+import javafx.stage.Stage;
 
 public class Afficharge {
-
+    
     public static String titre(String titre) {
         //	System.out.println(titre.length());
         String affiche = "";
@@ -41,37 +44,39 @@ public class Afficharge {
         return sb.toString();
     }
 
-    public static String creerLigne(String a, String b, String c, String tol, String ra, String ft, String oracleDirecte, String oracleIter) {
+    public static String creerLigne(String a, String b, String c, String tol, String ra, String ft, String oracleIter) {
         String affiche = "";
         StringBuilder sb = new StringBuilder();
         sb.append("| ");
         sb.append(a);
-        sb.append(espaces(26 - a.length()));
+        sb.append(espaces(29 - a.length()));
 
         sb.append("| ");
         sb.append(b);
-        sb.append(espaces(26 - b.length()));
+        sb.append(espaces(17 - b.length()));
 
         sb.append("| ");
         sb.append(c);
-        sb.append(espaces(26 - c.length()));
+        sb.append(espaces(16 - c.length()));
 
         sb.append("| ");
         sb.append(tol);
-        sb.append(espaces(20 - tol.length()));
+        sb.append(espaces(18 - tol.length()));
 
         sb.append("| ");
         sb.append(ra);
-        sb.append(espaces(50 - ra.length()));
+        sb.append(espaces(28 - ra.length()));
 
         sb.append("| ");
         sb.append(ft);
-        sb.append(espaces(50 - ft.length()));
+        sb.append(espaces(27 - ft.length()));
 
+        /*
         sb.append("| ");
         sb.append(oracleDirecte);
         sb.append(espaces(8 - oracleDirecte.length()));
-
+        */
+        
         sb.append("| ");
         sb.append(oracleIter);
         sb.append(espaces(8 - oracleIter.length()));
@@ -84,24 +89,24 @@ public class Afficharge {
     public static String separation() {
 
         String a = "+";
-        for (int i = 1; i < 220; i++) {
+        for (int i = 1; i < 157; i++) {
             switch (i) {
-                case 28:
+                case 31:
                     a += "+";
                     break;
-                case 56:
+                case 50:
                     a += "+";
                     break;
-                case 84:
+                case 68:
                     a += "+";
                     break;
-                case 106:
+                case 88:
                     a += "+";
                     break;
-                case 158:
+                case 118:
                     a += "+";
                     break;
-                case 210:
+                case 147:
                     a += "+";
                     break;
                 default:

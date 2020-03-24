@@ -8,6 +8,10 @@ package deg1;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
+import java.util.Scanner;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import org.ujmp.core.Matrix;
 
 /**
  *
@@ -82,5 +86,83 @@ public class Func {
         }
 
         return res;
+    }
+    
+    public static void traceCourbe() throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, InstantiationException{
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println(Afficharge.titre("Comparaison de la solution exacte et de la solution approchée pour une fonction"));
+
+        System.out.println("Entrez la fonction resultatAttendu (en suivant la convention)");
+        String func = sc.next();
+
+        System.out.println("Entrez n");
+        int n = sc.nextInt();
+        
+        double a = Func.calcVal(0, Func.calcFonction(func));
+        double b = Func.calcVal(1, Func.calcFonction(func));
+        
+        Class solverInterface = Class.forName("deg1.Solver");
+        SolverInterface solv = (SolverInterface) solverInterface.newInstance();
+        
+        String fonctionDerivee = Func.calcDerivee(func);
+        Matrix results1;
+        results1 = solv.resolveIterative(fonctionDerivee, a, b, n);
+
+        Graphe.traceMatrice(func, results1, n);
+        //Graphe.traceErreurs(func, n1, n2, nb, false);
+    }
+
+    public static void tracés() {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.println(Afficharge.titre("Tracé de l'évolution des erreurs pour une fonction"));
+
+        System.out.println("Entrez la fonction resultatAttendu (en suivant la convention)");
+        String func = sc.next();
+
+        System.out.println("Entrez n1");
+        int n1 = sc.nextInt();
+
+        System.out.println("Entrez n2");
+        int n2 = sc.nextInt();
+
+        System.out.println("Entrez l'intervalle d'écart");
+        int nb = sc.nextInt();
+
+        Graphe.traceErreurs(func, n1, n2, nb, false, "Tracé des erreurs en fonction de h");
+        //Graphe.traceErreurs(func, n1, n2, nb, false);
+    }
+    
+    public static void calculPAlpha() {
+        try {
+            System.out.println(Afficharge.titre("Détermination de la vitesse de convergence"));
+            Scanner sc = new Scanner(System.in);
+            
+            System.out.println("Entrez la fonction resultatAttendu (en suivant la convention)");
+            String func = sc.next();
+            
+            System.out.println("Entrez n1");
+            int n1 = sc.nextInt();
+            
+            System.out.println("Entrez n2");
+            int n2 = sc.nextInt();
+            
+            //double[] valsDir = TestFuncs.calcPN(func, n1, n2, true);
+            double[] valsIter = TestFuncs.calcPN(func, n1, n2, false);
+            System.out.println("Fonction U réelle: " + func + " ; Methode Iterative: " + "p = " + valsIter[0] + " Log alpha = " + valsIter[1]);
+        } catch (InstantiationException ex) {
+            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (NoSuchMethodException ex) {
+            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ClassNotFoundException ex) {
+            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

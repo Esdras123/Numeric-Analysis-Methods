@@ -7,25 +7,35 @@ package deg1;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.Scanner;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.stage.Stage;
 import org.ujmp.core.Matrix;
 
 /**
  *
  * @author ESDRAS
  */
-public class DifferencesFinies {
+public class DifferencesFinies extends Application{
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
-        System.out.println("Entrez le nombre n correspondant au nombre de points du maillage - 1");
+    @Override
+    public void start(Stage primaryStage) throws Exception {
+        System.out.println("Entrez la taille du maillage pour le cas de test des solutions exactes (nbPts-1)");
+        
         Scanner sc = new Scanner(System.in);
         int n = sc.nextInt();
+
+        System.out.println("Pour le cas de test des solutions approchés, vous entrerez les entiers n1, n2 avec lesquels l'on calculera p et alpha");
+        
+        System.out.println("Entrez n1");
+        TestFuncs.n1 = sc.nextInt();
+        
+        System.out.println("Entrez n2");
+        TestFuncs.n2 = sc.nextInt();
 
         System.out.println(Afficharge.titre("Donnees de test pour la résolution de l'équation différentielle -u''=f"));
 
@@ -33,24 +43,38 @@ public class DifferencesFinies {
 
         Class solverInterface = Class.forName("deg1.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
-        int total = 0, totFalseDirec = 0, totFalseIter = 0;
+        int total = 0 /*,totFalseDirec = 0*/, totFalseIter = 0;
 
+        //System.out.println("OMD = Oracle Méthode Directe");
+        System.out.println("OMD = Oracle Méthode Itérative");
         System.out.println(Afficharge.separation());
-        System.out.println(Afficharge.creerLigne("f", "a", "b", "Tolérance", "Résultat attendu", "Fonction de test", "Oracle Methode Directe", "Oracle Methode itérative"));
+        System.out.println(Afficharge.creerLigne("f", "a", "b", "Tolérance", "Résultat attendu", "Fonction de test", /*"O.M.D",*/ "O.M.I"));
         for (DonneeTest dt : donneesTest) {
-            Matrix resultsDirecte = solv.resolveDirecte(dt.donneeEntree.f, dt.donneeEntree.a, dt.donneeEntree.b, dt.donneeEntree.n);
+            //Matrix resultsDirecte = solv.resolveDirecte(dt.donneeEntree.f, dt.donneeEntree.a, dt.donneeEntree.b, dt.donneeEntree.n);
             Matrix resultsIter = solv.resolveIterative(dt.donneeEntree.f, dt.donneeEntree.a, dt.donneeEntree.b, dt.donneeEntree.n);
-
-            Method method = TestFuncs.class.getMethod(dt.fonctionTest, String.class, Matrix.class, double.class, int.class);
-
-            boolean decisionDirecte = (boolean) method.invoke(null, dt.resultatAttendu, resultsDirecte, dt.tolerance, dt.donneeEntree.n);
-            boolean decisionIter = (boolean) method.invoke(null, dt.resultatAttendu, resultsIter, dt.tolerance, dt.donneeEntree.n);
+            
+            Method method;
+            boolean decisionIter;
+            if(dt.fonctionTest.equals("convMail")){
+                method = TestFuncs.class.getMethod(dt.fonctionTest, String.class);
+                decisionIter = (boolean) method.invoke(null, dt.resultatAttendu);
+            }else{
+                method = TestFuncs.class.getMethod(dt.fonctionTest, String.class, Matrix.class, double.class, int.class);
+                decisionIter = (boolean) method.invoke(null, dt.resultatAttendu, resultsIter, dt.tolerance, dt.donneeEntree.n);
+            }
+            //boolean decisionDirecte = (boolean) method.invoke(null, dt.resultatAttendu, resultsDirecte, dt.tolerance, dt.donneeEntree.n);
+            
+            //boolean decisionIter = false;
+            
             String ra = "null", ro = "null";
-
-            System.out.println(Afficharge.creerLigne(dt.donneeEntree.f, Double.toString(dt.donneeEntree.a), Double.toString(dt.donneeEntree.b), Double.toString(dt.tolerance), dt.resultatAttendu, dt.fonctionTest, Boolean.toString(decisionDirecte), Boolean.toString(decisionIter)));
+            
+            DecimalFormat df = new DecimalFormat("00.00E00");
+            System.out.println(Afficharge.creerLigne(dt.donneeEntree.f, df.format(dt.donneeEntree.a), df.format(dt.donneeEntree.b), Double.toString(dt.tolerance), dt.resultatAttendu, dt.fonctionTest,/* Boolean.toString(decisionDirecte),*/ Boolean.toString(decisionIter)));
+            /*
             if (!decisionDirecte) {
                 totFalseDirec += 1;
             }
+            */
             if (!decisionIter) {
                 totFalseIter += 1;
             }
@@ -58,65 +82,18 @@ public class DifferencesFinies {
 
         }
 
-        System.out.println("Total Tests Ratés Méthode Directe: " + totFalseDirec + "/" + " " + total + "             Total Tests Ratés Méthode Itérative: " + (totFalseIter) + "/" + " " + total);
+        System.out.println(/*"Total Tests Ratés Méthode Directe: " + totFalseDirec + "/" + " " + total + */"Total Tests Ratés Méthode Itérative: " + (totFalseIter) + "/" + " " + total);
 
-        DifferencesFinies.calculPAlpha();
-        DifferencesFinies.tracés();
-
+        Func.calculPAlpha();
+        Func.traceCourbe();
+        Func.tracés();
     }
+    
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) throws ClassNotFoundException, InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+        launch(args);
 
-    public static void tracés() {
-        Scanner sc = new Scanner(System.in);
-
-        System.out.println(Afficharge.titre("Tracé des courbes pour une fonction"));
-
-        System.out.println("Entrez la fonction resultatAttendu (en suivant la convention)");
-        String func = sc.next();
-
-        System.out.println("Entrez n1");
-        int n1 = sc.nextInt();
-
-        System.out.println("Entrez n2");
-        int n2 = sc.nextInt();
-
-        System.out.println("Entrez l'intervalle d'écart");
-        int nb = sc.nextInt();
-
-        Graphe.traceErreurs(func, n1, n2, nb, true);
-        Graphe.traceErreurs(func, n1, n2, nb, false);
-    }
-
-    private static void calculPAlpha() {
-        try {
-            System.out.println(Afficharge.titre("Détermination de la vitesse de convergence"));
-            Scanner sc = new Scanner(System.in);
-            
-            System.out.println("Entrez la fonction resultatAttendu (en suivant la convention)");
-            String func = sc.next();
-            
-            System.out.println("Entrez n1");
-            int n1 = sc.nextInt();
-            
-            System.out.println("Entrez n2");
-            int n2 = sc.nextInt();
-            
-            double[] valsDir = TestFuncs.calcPN(func, n1, n2, true);
-            double[] valsIter = TestFuncs.calcPN(func, n1, n2, false);
-            
-            System.out.println("Fonction U réelle: " + func + "; Methode Directe: "
-                    + "p = " + valsDir[0] + " alpha = " + valsDir[1] + " ; Methode Iterative: " + "p = " + valsIter[0] + " alpha = " + valsIter[1]);
-        } catch (InstantiationException ex) {
-            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (NoSuchMethodException ex) {
-            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (IllegalArgumentException ex) {
-            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (InvocationTargetException ex) {
-            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ClassNotFoundException ex) {
-            Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 }

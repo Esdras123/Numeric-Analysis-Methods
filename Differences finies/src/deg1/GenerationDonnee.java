@@ -22,8 +22,22 @@ public class GenerationDonnee {
         try {
             Workbook workbook = Workbook.getWorkbook(new File("Excel/donnee.xls"));
             Sheet sheet = workbook.getSheet(0);
-            int rows = 17;
+            //int rows = 17;
             int columns = sheet.getColumns();
+            int i = 1;
+            do{
+                donneeEntree.add(
+
+                        new DonneeTest(sheet.getCell(0,i).getContents(),
+                                "solve",
+                                sheet.getCell(3,i).getContents(),
+                                Double.parseDouble(sheet.getCell(4,i).getContents()),
+                                sheet.getCell(5,i).getContents(),
+                                n
+                                ));
+                i++;
+            }while(!sheet.getCell(0,i).getContents().equals("END"));
+            /*
             for (int i=1; i < rows; i++){
                 donneeEntree.add(
 
@@ -35,6 +49,8 @@ public class GenerationDonnee {
                                 n
                                 ));
             }
+            */
+            
         } catch (IOException e) {
             e.printStackTrace();
         } catch (BiffException e) {
