@@ -129,7 +129,7 @@ public class Graphe {
             for (int i = n1; i <= n2; i += nb) {
 
                 valAbs[index] = i;
-                erreurs[index] = TestFuncs.calcErreur(fonction, i, methode);
+                erreurs[index] = Math.log(TestFuncs.calcErreur(fonction, i, methode));
                 index++;
             }
             String titre = "Methode directe";
