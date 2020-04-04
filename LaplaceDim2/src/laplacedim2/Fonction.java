@@ -7,7 +7,7 @@ package laplacedim2;
 
 /**
  *
- * @author ESDRAS
+ * @author DAGANG
  */
 public class Fonction {
 
@@ -15,87 +15,193 @@ public class Fonction {
     statique et a un deux paramètres qui sont double
      */
 
-    public static double carre(double x) {
-        return x * x;
-    }
+    //Fonctions
 
-    public static double constante(double x) {
-        return 0;
-    }
-
-    public static double nulle(double x) { return 0;}
-
-    public static double cte(double x){
-        return 1.0;
-    }
-
-    public static double simplex(double x){
+    public static double x(double x, double y) {
         return x;
     }
 
-    public static double carrex(double x){
-        return Math.pow(x, 2);
+    public static double y(double x, double y) {
+        return y;
     }
 
-    public static double cubex(double x){
-        return Math.pow(x, 3);
+    public static double produit(double x, double y) {
+        return x * y;
     }
 
-    public static double p5x(double x) {return Math.pow(x,5);}
+    public static double nulle(double x, double y) {
+        return 0.0;
+    }
 
-    public static double cosx(double x){
+    public static double cte(double x, double y){
+        return 1.0;
+    }
+
+    public static double somme(double x, double y){
+        return x + y;
+    }
+
+    public static double puissance(double x, double y){
+        return Math.pow(x, y);
+    }
+
+    public static double cosx(double x, double y){
         return Math.cos(x);
     }
 
-    public static double sinx(double x){
+    public static double sinx(double x, double y){
         return Math.sin(x);
     }
 
-    public static double exp(double x){
+    public static double cosy(double x, double y){
+        return Math.cos(y);
+    }
+
+    public static double siny(double x, double y){
+        return Math.sin(y);
+    }
+
+    public static double cosSomme(double x, double y){
+        return Math.cos(x + y);
+    }
+
+    public static double sinSomme(double x, double y){
+        return Math.sin(x + y);
+    }
+
+    public static double cosProduit(double x, double y){
+        return Math.cos(x * y);
+    }
+
+    public static double sinProduit(double x, double y){
+        return Math.sin(x * y);
+    }
+
+    public static double expx(double x, double y){
         return Math.exp(x);
     }
 
-    public static double lnUn(double x) { return Math.log(1+x); }
-
-    public static double doublex(double x) {
-        return 2 * x;
+    public static double expy(double x, double y){
+        return Math.exp(y);
     }
 
-    public static double DRnulle(double x) {return 0.0;}
+    public static double expSomme(double x, double y){
+        return Math.exp(x * y);
+    }
 
-    public static double DRcte(double x) {
+    public static double expProduit(double x, double y){
+        return Math.exp(x * y);
+    }
+
+    public static double lnx(double x, double y) {
+        return Math.log(x);
+    }
+
+    public static double lny(double x, double y) {
+        return Math.log(y);
+    }
+
+    public static double lnSomme(double x, double y) {
+        return Math.log(x + y);
+    }
+
+    public static double lnProduit(double x, double y) {
+        return Math.log(x * y);
+    }
+
+
+
+    //Derivees
+
+    public static double DRx(double x, double y) {
         return 0.0;
     }
 
-    public static double DRsimplex(double x) {
+    public static double DRy(double x, double y) {
         return 0.0;
     }
 
-    public static double DRcarrex(double x) {
-        return -2;
+    public static double DRproduit(double x, double y) {
+        return 0.0;
     }
 
-    public static double DRcubex(double x) {
-        return -6*x;
+    public static double DRnulle(double x, double y) {
+        return 0.0;
     }
 
-    public static double DRp5x(double x) {
-        return -20*Math.pow(x,3);
+    public static double DRcte(double x, double y){
+        return 0.0;
     }
 
-    public static double DRcosx(double x) {
-        return Math.cos(x);
+    public static double DRsomme(double x, double y){
+        return 0.0;
     }
 
-    public static double DRsinx(double x) {
-        return Math.sin(x);
+    public static double DRpuissance(double x, double y){
+        return -( y * (y - 1) * Math.pow(x, y - 2) + Math.pow(Math.log(x), 2) * Math.pow(x, y));
     }
 
-    public static double DRexp(double x) {
+    public static double DRcosx(double x, double y){
+        return -Math.cos(x);
+    }
+
+    public static double DRsinx(double x, double y){
+        return -Math.sin(x);
+    }
+
+    public static double DRcosy(double x, double y){
+        return -Math.cos(y);
+    }
+
+    public static double DRsiny(double x, double y){
+        return -Math.sin(y);
+    }
+
+    public static double DRcosSomme(double x, double y){
+        return 2.0 * Math.cos(x + y);
+    }
+
+    public static double DRsinSomme(double x, double y){
+        return 2.0 * Math.sin(x + y);
+    }
+
+    public static double DRcosProduit(double x, double y){
+        return (Math.pow(x, 2) + Math.pow(y, 2)) * Math.cos(x * y);
+    }
+
+    public static double sinProduit(double x, double y){
+        return (Math.pow(x, 2) + Math.pow(y, 2)) * Math.sin(x * y);
+    }
+
+    public static double expx(double x, double y){
         return - Math.exp(x);
     }
 
-    public static double DRlnUn(double x) {
-        return -(1/Math.pow(x+1,2));
+    public static double expy(double x, double y){
+        return - Math.exp(y);
+    }
+
+    public static double expSomme(double x, double y){
+        return -2.0 * Math.exp(x * y);
+    }
+
+    public static double expProduit(double x, double y){
+        return -((Math.pow(x, 2) + Math.pow(y, 2)) * Math.exp(x * y));
+    }
+
+    public static double lnx(double x, double y) {
+        return 1.0 / Math.pow(x, 2);
+    }
+
+    public static double lny(double x, double y) {
+        return 1.0 / Math.pow(y, 2);
+    }
+
+    public static double lnSomme(double x, double y) {
+        return 2.0 / Math.pow(x + y, 2);
+    }
+
+    public static double lnProduit(double x, double y) {
+        return ( 1.0 / Math.pow(x, 2) + 1.0 / Math.pow(y, 2) );
     }
 }
