@@ -102,7 +102,7 @@ public class Func {
         double a = Func.calcVal(0, Func.calcFonction(func));
         double b = Func.calcVal(1, Func.calcFonction(func));
         
-        Class solverInterface = Class.forName("deg1.Solver");
+        Class solverInterface = Class.forName("laplacedim2.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
         
         String fonctionDerivee = Func.calcDerivee(func);
