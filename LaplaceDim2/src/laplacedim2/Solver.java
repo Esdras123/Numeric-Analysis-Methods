@@ -50,6 +50,44 @@ public class Solver implements SolverInterface {
             //naturellement apres faut tester
              */
             //l'initialisation de A et b commencent ici
+            double h =(double) 1/n;
+            double k =(double) 1/m;
+            int tailleb = (n-1)(m-1);
+            int x=1;
+            int y=1;
+            // Remplissage de la matrice B
+
+            for (int i = 0; i < tailleb-1; i++) {
+                // on va determiner l'ordre de l'element X et Y a utiliser pour le calcul de f(Xi,Yj)
+                if ((i+1)%(m-1)!=0) {
+                     x=((i+1)/(m-1))+1;
+                     y=(i+1)%(m-1);
+                }
+                else {
+                    x=(i+1)/(m-1);
+                    y=m-1;
+                }
+
+                // initialisation de la  case de b avec  f(Xi,Yj)
+                val = Func.calcVal(((double) x), ((double) y)), listeFunc);
+                // ajout  des Uoy et Uxo
+                if (x==1 && y==1){
+                    val=val+(tabY1[1]/Math.pow(h, 2))+(tabX1[0]/Math.pow(k, 2));
+                }
+                if (x==1 && y!=1){
+                    val=val+(tabY1[y]/Math.pow(h, 2));
+                }
+                if (x!=1 && y==1){
+                    val=val+(tabX1[x-1]/Math.pow(k, 2));
+                }
+
+       // ajout dans le vecteur B
+                b.setAsDouble(val , i, 0);
+
+            }
+
+            // Remplissage de la matrice A
+
             //le travail s'achève ici, ne rien modifier en dessous
             Matrix[] retour = {A, b};
             return retour;
