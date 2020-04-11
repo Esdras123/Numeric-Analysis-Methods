@@ -55,7 +55,7 @@ public class Fonction {
         return Math.exp(x);
     }
 
-    public static double ln(double x) { return Math.log(x); }
+    public static double lnUn(double x) { return Math.log(1+x); }
 
     public static double doublex(double x) {
         return 2 * x;
@@ -95,7 +95,7 @@ public class Fonction {
         return - Math.exp(x);
     }
 
-    public static double DRln(double x) {
-        return -(1/Math.pow(x,2));
+    public static double DRlnUn(double x) {
+        return -(1/Math.pow(x+1,2));
     }
 }

@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/D:/Relatif%20à%20l'école/4EME%20ANNEE/Niveau%204/Semestre%202/Analyse%20Numérique%202/TPS/Differences%20finies/src/deg1/Fonction.java</file>
-            <file>file:/D:/Relatif%20à%20l'école/4EME%20ANNEE/Niveau%204/Semestre%202/Analyse%20Numérique%202/TPS/Differences%20finies/src/deg1/Solver.java</file>
+            <file>file:/D:/Relatif%20à%20l'école/4EME%20ANNEE/Niveau%204/Semestre%202/Analyse%20Numérique%202/TPS/Differences%20finies/src/deg1/Func.java</file>
+            <file>file:/D:/Relatif%20à%20l'école/4EME%20ANNEE/Niveau%204/Semestre%202/Analyse%20Numérique%202/TPS/Differences%20finies/src/deg1/Graphe.java</file>
+            <file>file:/D:/Relatif%20à%20l'école/4EME%20ANNEE/Niveau%204/Semestre%202/Analyse%20Numérique%202/TPS/Differences%20finies/src/deg1/TestFuncs.java</file>
+            <file>file:/D:/Relatif%20à%20l'école/4EME%20ANNEE/Niveau%204/Semestre%202/Analyse%20Numérique%202/TPS/Differences%20finies/src/deg1/SolverInterface.java</file>
+            <file>file:/D:/Relatif%20à%20l'école/4EME%20ANNEE/Niveau%204/Semestre%202/Analyse%20Numérique%202/TPS/Differences%20finies/src/deg1/DifferencesFinies.java</file>
         </group>
     </open-files>
 </project-private>

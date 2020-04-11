@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package deg1;
+package laplacedim2;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
@@ -43,11 +43,11 @@ public class Func {
                 return null;
             }
             if (singularFunc.length == 1) {
-                Method method = Fonction.class.getMethod(singularFunc[0], double.class);
+                Method method = Fonction.class.getMethod(singularFunc[0], double.class, double.class);
                 listeFunc.add(new Func(method));
             }
             if (singularFunc.length == 2) {
-                Method method = Fonction.class.getMethod(singularFunc[1], double.class);
+                Method method = Fonction.class.getMethod(singularFunc[1], double.class, double.class);
                 double coef = Double.parseDouble(singularFunc[0]);
                 listeFunc.add(new Func(coef, method));
             }
@@ -78,16 +78,16 @@ public class Func {
         return res;
     }
 
-    public static double calcVal(double val, ArrayList<Func> listeFunc) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
+    public static double calcVal(double x, double y, ArrayList<Func> listeFunc) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         double res = 0.0;
 
         for (Func fn : listeFunc) {
-            res += fn.coef * ((Double) fn.method.invoke(null, val));
+            res += fn.coef * ((Double) fn.method.invoke(null, x, y));
         }
 
         return res;
     }
-    
+    /*
     public static void traceCourbe() throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, InstantiationException{
         Scanner sc = new Scanner(System.in);
 
@@ -102,7 +102,7 @@ public class Func {
         double a = Func.calcVal(0, Func.calcFonction(func));
         double b = Func.calcVal(1, Func.calcFonction(func));
         
-        Class solverInterface = Class.forName("deg1.Solver");
+        Class solverInterface = Class.forName("laplacedim2.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
         
         String fonctionDerivee = Func.calcDerivee(func);
@@ -165,4 +165,5 @@ public class Func {
             Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    */
 }

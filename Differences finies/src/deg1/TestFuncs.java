@@ -14,18 +14,33 @@ import org.ujmp.core.Matrix;
  * @author ESDRAS
  */
 public class TestFuncs {
-
+    public static int n1 = 10;
+    public static int n2 = 200;
+    
+    public static boolean convMail(String fonction) throws InstantiationException, IllegalAccessException, IllegalAccessException, ClassNotFoundException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException{
+        double[] PN = TestFuncs.calcPN(fonction, n1, n2, false);
+        
+        if(PN[0]>=(2.0- 10E-10)){
+            return true;
+        }
+        return false;
+    }
+    /*
     public static boolean identite(String fonction, Matrix solObt, double tolerance, int n) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Matrix solReelle = DenseMatrix.Factory.zeros(n - 1, 1);
-
+        double val;
         for (int i = 0; i < n - 1; i++) {
-            solReelle.setAsDouble(Func.calcVal(((double) i + 1) / n, Func.calcFonction(fonction)), i, 0);
+            val = Func.calcVal(((double) i + 1) / n, Func.calcFonction(fonction));
+            System.out.println("reel: " + val + " obtenu: " + solObt.getAsDouble(i,0));
+            solReelle.setAsDouble(val, i, 0);
         }
+        //System.out.println(solObt);
 
         Matrix diff = solReelle.minus(solObt);
-        return diff.norm2() < tolerance;
+        return diff.normInf() <= tolerance;
     }
-
+    */
+    
     public static boolean erreurRel(String fonction, Matrix solObt, double tolerance, int n) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         Matrix solReelle = DenseMatrix.Factory.zeros(n - 1, 1);
         double val;
@@ -34,14 +49,13 @@ public class TestFuncs {
             solReelle.setAsDouble(Func.calcVal(((double) i + 1) / n, Func.calcFonction(fonction)), i, 0);
         }
         
-        val = solReelle.norm2();
+        val = solReelle.normInf();
         Matrix diff = solReelle.minus(solObt);
-        if (solReelle.norm2()!=0.0) {
-            return diff.norm2()/val < tolerance;
+        if (solReelle.normInf()!=0.0) {
+            return diff.normInf()/val < tolerance;
         } else {
-            return diff.norm2() == 0.0;
+            return diff.normInf() == 0.0;
         }
-
     }
     
     public static double[] calcPN(String fonction, int n1, int n2, boolean methode) throws InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException{
@@ -50,7 +64,7 @@ public class TestFuncs {
         double err1 = TestFuncs.calcErreur(fonction, n1, methode);
         double err2 = TestFuncs.calcErreur(fonction, n2, methode);
         
-        double p = (Math.log(err2)-Math.log(err1))/(Math.log(n1)-Math.log(n2));
+        double p = (Math.log(err2) - Math.log(err1))/(Math.log(n1) - Math.log(n2));
         double alpha = (Math.log(err1) + p* Math.log(n1));
         double[] resultat = {p,alpha};
         
@@ -79,7 +93,8 @@ public class TestFuncs {
             solReelle1.setAsDouble(Func.calcVal(((double) i + 1) / n1, Func.calcFonction(fonction)), i, 0);
         }
         
-        double err1 = solReelle1.minus(results1).norm2();
+        double err1 = (solReelle1.minus(results1).normInf());
+        //System.out.println("erreur " + err1);
         return err1;
     }
 }
