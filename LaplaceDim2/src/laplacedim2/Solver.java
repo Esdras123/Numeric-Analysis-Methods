@@ -30,11 +30,11 @@ public class Solver implements SolverInterface {
             //le cadre de l'équation de Laplace
             //il faut donc remplir A comme demandé dans le cours
             //ainsi que b
-
+            int tailleb = (n-1)(m-1);
             //initialisation des matrices A et b
             //il faut mettre les valeurs correctes des dimensions dans les parenthèses
-            Matrix b = DenseMatrix.Factory.zeros(n - 1, 1);
-            SparseMatrix A = SparseMatrix.Factory.zeros(n - 1, n - 1);
+            Matrix b = DenseMatrix.Factory.zeros(tailleb, 1);
+            SparseMatrix A = SparseMatrix.Factory.zeros(tailleb, tailleb);
 
             //creation dynamique de la fonction f (de l'équation Delta U = f). Cette fonction permettra de calculer des valeurs du style f(x,y)
             ArrayList<Func> listeFunc = Func.calcFonction(fonction);
@@ -50,15 +50,18 @@ public class Solver implements SolverInterface {
             //naturellement apres faut tester
              */
             //l'initialisation de A et b commencent ici
-            double h =(double) 1/n;
-            double k =(double) 1/m;
-            int tailleb = (n-1)(m-1);
+            double h =(double) (1/n);
+            double k =(double) (1/m);
+
             int x=1;
             int y=1;
+            double K=Math.pow(k, 2);
+            double H=Math.pow(h, 2);
+            double val=0.0;
             // Remplissage de la matrice B
 
-            for (int i = 0; i < tailleb-1; i++) {
-                // on va determiner l'ordre de l'element X et Y a utiliser pour le calcul de f(Xi,Yj)
+            for (int i = 0; i <= tailleb-1; i++) {
+                // on va determiner l'ordre de l'element X et Y a utiliser pour le calcul de f(Xi,Yj) qui sera ajouté au vecteur a l'emplacement i
                 if ((i+1)%(m-1)!=0) {
                      x=((i+1)/(m-1))+1;
                      y=(i+1)%(m-1);
@@ -72,13 +75,13 @@ public class Solver implements SolverInterface {
                 val = Func.calcVal(((double) x), ((double) y)), listeFunc);
                 // ajout  des Uoy et Uxo
                 if (x==1 && y==1){
-                    val=val+(tabY1[1]/Math.pow(h, 2))+(tabX1[0]/Math.pow(k, 2));
+                    val=val+(tabY1[1]/H)+(tabX1[0]/K);
                 }
                 if (x==1 && y!=1){
-                    val=val+(tabY1[y]/Math.pow(h, 2));
+                    val=val+(tabY1[y]/H);
                 }
                 if (x!=1 && y==1){
-                    val=val+(tabX1[x-1]/Math.pow(k, 2));
+                    val=val+(tabX1[x-1]/K);
                 }
 
        // ajout dans le vecteur B
@@ -87,7 +90,24 @@ public class Solver implements SolverInterface {
             }
 
             // Remplissage de la matrice A
+            double valeur=2*((1/K)+(1/H));
 
+            for (int i = 0; i <= tailleb - 1; i++){
+                // remplissage de valeur sur LA Diagonale
+                A.setAsDouble(valeur , i, i);
+                // AJOUT SUR LES PREMIERES DIAGONALES INFERIEURS ET SUPERIEURES
+                if (i < tailleb-1) {
+                    A.setAsDouble((-1)/K, i + 1, i);
+                    A.setAsDouble((-1)/K, i, i + 1);
+                }
+                // AJOUT SUR LES (M-1) iemes DIAGONALES INFERIEURS ET SUPERIEURES
+                if (i < tailleb-(m-1)) {
+                    A.setAsDouble((-1)/H, i + (m-1), i);
+                    A.setAsDouble((-1)/H, i, i + (m-1));
+                }
+
+            }
+            // Fin initialsation
             //le travail s'achève ici, ne rien modifier en dessous
             Matrix[] retour = {A, b};
             return retour;

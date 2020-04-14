@@ -40,7 +40,7 @@ public class DifferencesFinies extends Application {
 
         ArrayList<DonneeTest> donneesTest = GenerationDonnee.getDonneesTest(n);
 
-        Class solverInterface = Class.forName("deg1.Solver");
+        Class solverInterface = Class.forName("laplacedim2.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
          */
         //int total = 0 /*,totFalseDirec = 0*/, totFalseIter = 0;
