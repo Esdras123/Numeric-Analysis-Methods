@@ -2,8 +2,57 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3be27057-7195-40da-8553-21507019ef98" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/.idea/libraries/jxls_jexcel_1_0_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/.idea/libraries/ujmp_complete_0_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/Excel/donnee.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/LaplaceDim2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/commons-beanutils-1.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/commons-collections-3.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/commons-jexl3-3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/jcl-over-slf4j-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/jxl-2.6.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/jxls-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/jxls-jexcel-1.0.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/log4j-1.2.14.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/logback-core-1.2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/slf4j-api-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/lib/ujmp-complete-0.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../LaplaceDim2/src/laplacedim2/genData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/Excel/donnee.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/Excel/donnee.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-beanutils-1.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-collections-3.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-jexl3-3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jcl-over-slf4j-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jxl-2.6.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jxls-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jxls-jexcel-1.0.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/log4j-1.2.14.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/logback-core-1.2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/slf4j-api-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/ujmp-complete-0.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/src/com/company/genData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/TPS-Ananum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/TPS-Ananum.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../LaplaceDim2/src/laplacedim2/Fonction.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LaplaceDim2/src/laplacedim2/Fonction.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/META-INF/Differences finies.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/Afficharge.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/Afficharge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/DifferencesFinies.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/DifferencesFinies.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/DonneeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/DonneeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/Fonction.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/Fonction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/Func.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/Func.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/GaussSeidel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/GaussSeidel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/GenerationDonnee.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/GenerationDonnee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/Graphe.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/Graphe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Differences finies/deg1/TestFuncs.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Differences finies/deg1/TestFuncs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../LaplaceDim2/src/laplacedim2/Afficharge.java" beforeDir="false" afterPath="$PROJECT_DIR$/../LaplaceDim2/src/laplacedim2/Afficharge.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,9 +63,47 @@
   <component name="DefaultGradleProjectSettings">
     <option name="isMigrated" value="true" />
   </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/deg1/GenerationDonnee.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deg1/Test.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="240">
+              <caret line="22" selection-start-line="22" selection-end-line="22" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/deg1/Fonction.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1368">
+              <caret line="99" column="5" selection-start-line="97" selection-end-line="100" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/deg1/Test.java" />
+      </list>
+    </option>
   </component>
   <component name="MavenImportPreferences">
     <option name="importingSettings">
@@ -25,8 +112,34 @@
       </MavenImportingSettings>
     </option>
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1048" />
+  </component>
   <component name="ProjectId" id="1a1gaHxhfmQBr4dgYUf97veQvEJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Differences finies" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Differences finies" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="Downloaded.Files.Path.Enabled" value="true" />
@@ -36,7 +149,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
@@ -115,8 +228,52 @@
       <workItem from="1584301428932" duration="16631000" />
       <workItem from="1584705283282" duration="669000" />
       <workItem from="1585908582148" duration="813000" />
+      <workItem from="1587954249927" duration="4236000" />
+      <workItem from="1587989175287" duration="709000" />
     </task>
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="4945000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.25302014" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="aws.explorer" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="Favorites" order="6" side_tool="true" />
+      <window_info id="UI Designer" order="7" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32941177" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Terminal" order="7" />
+      <window_info anchor="bottom" id="Docker" order="8" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" order="10" />
+      <window_info anchor="bottom" id="Database Changes" order="11" />
+      <window_info anchor="bottom" id="Version Control" order="12" />
+      <window_info anchor="bottom" id="Flutter Performance" order="13" side_tool="true" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Maven" order="3" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Flutter Inspector" order="5" />
+      <window_info anchor="right" id="Flutter Outline" order="6" />
+      <window_info anchor="right" id="Database" order="7" />
+      <window_info anchor="right" id="Palette&#9;" order="8" />
+      <window_info anchor="right" id="Theme Preview" order="9" />
+      <window_info anchor="right" id="Capture Analysis" order="10" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -126,11 +283,55 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="RECENTLY_FILTERED_USER_GROUPS">
+                <collection />
+              </option>
+              <option name="RECENTLY_FILTERED_BRANCH_GROUPS">
+                <collection />
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/deg1/GenerationDonnee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="56" column="32" selection-start-line="56" selection-start-column="32" selection-end-line="56" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deg1/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="22" selection-start-line="22" selection-end-line="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/deg1/Fonction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1368">
+          <caret line="99" column="5" selection-start-line="97" selection-end-line="100" />
+        </state>
+      </provider>
+    </entry>
   </component>
   <component name="masterDetails">
     <states>

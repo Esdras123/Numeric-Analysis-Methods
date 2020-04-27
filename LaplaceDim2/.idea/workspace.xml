@@ -1,0 +1,469 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e275ddfe-043d-47a6-bbe3-30075a15e7db" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/jxls_jexcel_1_0_9.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/ujmp_complete_0_3_0.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Excel/donnee.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LaplaceDim2.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-beanutils-1.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-collections-3.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-jexl3-3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jcl-over-slf4j-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jxl-2.6.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jxls-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jxls-jexcel-1.0.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/log4j-1.2.14.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/logback-core-1.2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/slf4j-api-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/ujmp-complete-0.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/laplacedim2/genData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/Excel/donnee.xls" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/Excel/donnee.xlsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-beanutils-1.9.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-collections-3.2.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-jexl3-3.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/commons-logging-1.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jcl-over-slf4j-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jxl-2.6.10.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jxls-2.6.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/jxls-jexcel-1.0.9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/log4j-1.2.14.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/logback-core-1.2.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/slf4j-api-1.7.26.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/lib/ujmp-complete-0.3.0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Test gen fichier excel/src/com/company/genData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/TPS-Ananum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/TPS-Ananum.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/META-INF/Differences finies.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Afficharge.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Afficharge.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/DifferencesFinies.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/DifferencesFinies.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/DonneeTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/DonneeTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Fonction.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Fonction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Func.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Func.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/GaussSeidel.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/GaussSeidel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/GenerationDonnee.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/GenerationDonnee.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Graphe.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Graphe.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Solver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Solver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Test.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/Test.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/TestFuncs.class" beforeDir="false" afterPath="$PROJECT_DIR$/../Differences finies/out/production/Differences finies/deg1/TestFuncs.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/laplacedim2/Afficharge.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/laplacedim2/Afficharge.java" afterDir="false" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DefaultGradleProjectSettings">
+    <option name="testRunner" value="GRADLE" />
+    <option name="delegatedBuild" value="true" />
+  </component>
+  <component name="FileEditorManager">
+    <splitter split-orientation="horizontal" split-proportion="0.6798387">
+      <split-first>
+        <leaf>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/Fonction.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="259">
+                  <caret line="90" selection-start-line="90" selection-end-line="90" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/genData.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="96">
+                  <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/Afficharge.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="1080">
+                  <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/DifferencesFinies.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-1483">
+                  <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/Solver.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-2331">
+                  <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/Test.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="456">
+                  <caret line="25" column="5" selection-start-line="23" selection-end-line="26" />
+                  <folding>
+                    <element signature="imports" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/GenerationDonnee.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="264">
+                  <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-first>
+      <split-second>
+        <leaf>
+          <file pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/src/laplacedim2/GenerationDonnee.java">
+              <provider selected="true" editor-type-id="text-editor">
+                <state relative-caret-position="-48">
+                  <caret line="15" column="31" selection-start-line="15" selection-start-column="31" selection-end-line="15" selection-end-column="31" />
+                  <folding>
+                    <element signature="e#606#618#0" expanded="true" />
+                  </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+        </leaf>
+      </split-second>
+    </splitter>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/laplacedim2/Fonction.java" />
+        <option value="$PROJECT_DIR$/src/laplacedim2/Afficharge.java" />
+        <option value="$PROJECT_DIR$/src/laplacedim2/genData.java" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-9" />
+    <option name="y" value="-9" />
+    <option name="width" value="978" />
+    <option name="height" value="1048" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="LaplaceDim2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LaplaceDim2" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LaplaceDim2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LaplaceDim2" type="462c0819:PsiDirectoryNode" />
+              <item name="Excel" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LaplaceDim2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LaplaceDim2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="LaplaceDim2" type="b2602c69:ProjectViewProjectNode" />
+              <item name="LaplaceDim2" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="laplacedim2" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/jxls-2.6.0.jar!/" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="laplacedim2" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\projet\Java\TPS-Ananum\LaplaceDim2\lib" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.genData">
+    <configuration name="Main Dim 2" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="laplacedim2.DifferencesFinies" />
+      <module name="LaplaceDim2" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="genData" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="laplacedim2.genData" />
+      <module name="LaplaceDim2" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="laplacedim2.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Main Dim 2" />
+      <item itemvalue="Application.genData" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.genData" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e275ddfe-043d-47a6-bbe3-30075a15e7db" name="Default Changelist" comment="" />
+      <created>1587971601982</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1587971601982</updated>
+      <workItem from="1587971605343" duration="10277000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="10277000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Designer" />
+      <window_info id="Image Layers" />
+      <window_info id="aws.explorer" side_tool="true" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info id="Capture Tool" />
+      <window_info id="UI Designer" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.16778524" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Messages" visible="true" weight="0.32941177" />
+      <window_info anchor="bottom" id="Database Changes" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Flutter Performance" side_tool="true" />
+      <window_info anchor="bottom" id="Docker" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Flutter Inspector" />
+      <window_info anchor="right" id="Flutter Outline" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Database" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/laplacedim2/GenerationDonnee.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="26" column="45" selection-start-line="26" selection-start-column="45" selection-end-line="26" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laplacedim2/Afficharge.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="45" column="44" selection-start-line="45" selection-start-column="44" selection-end-line="45" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laplacedim2/DifferencesFinies.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1483">
+          <caret line="25" column="62" selection-start-line="25" selection-start-column="62" selection-end-line="25" selection-end-column="62" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laplacedim2/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="456">
+          <caret line="25" column="5" selection-start-line="23" selection-end-line="26" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laplacedim2/Solver.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2331">
+          <caret line="35" column="58" selection-start-line="35" selection-start-column="58" selection-end-line="35" selection-end-column="58" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laplacedim2/Fonction.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="259">
+          <caret line="90" selection-start-line="90" selection-end-line="90" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/laplacedim2/genData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="35" column="14" lean-forward="true" selection-start-line="35" selection-start-column="14" selection-end-line="35" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>LaplaceDim2</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>jxls-jexcel-1.0.9</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>
