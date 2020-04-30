@@ -24,13 +24,13 @@ public class Solver implements SolverInterface {
         //System.out.println(solv.resolveIterative("doublex", 0, 1, 10));
     }
 
-    public Matrix[] initMatrix(String fonction, double[] tabX1, double[] tabX2, double[] tabY1, double[] tabY2, int n, int m) {
+    public Matrix[] initMatrix(String fonction, double[] tabX1, double[] tabX2, double[] tabY1, double[] tabY2, int n, int m) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException {
         try {
             //cette méthode a pour but d'initialiser les matrices A et b permettant de résoudre Ax = b dans 
             //le cadre de l'équation de Laplace
             //il faut donc remplir A comme demandé dans le cours
             //ainsi que b
-            int tailleb = (n-1)(m-1);
+            int tailleb = (n - 1) * (m - 1);
             //initialisation des matrices A et b
             //il faut mettre les valeurs correctes des dimensions dans les parenthèses
             Matrix b = DenseMatrix.Factory.zeros(tailleb, 1);
@@ -50,60 +50,59 @@ public class Solver implements SolverInterface {
             //naturellement apres faut tester
              */
             //l'initialisation de A et b commencent ici
-            double h =(double) (1/n);
-            double k =(double) (1/m);
+            double h = ((double)1 / n);
+            double k = ((double) 1 / m);
 
-            int x=1;
-            int y=1;
-            double K=Math.pow(k, 2);
-            double H=Math.pow(h, 2);
-            double val=0.0;
+            int x = 1;
+            int y = 1;
+            double K = Math.pow(k, 2);
+            double H = Math.pow(h, 2);
+            double val = 0.0;
             // Remplissage de la matrice B
 
-            for (int i = 0; i <= tailleb-1; i++) {
+            for (int i = 0; i <= tailleb - 1; i++) {
                 // on va determiner l'ordre de l'element X et Y a utiliser pour le calcul de f(Xi,Yj) qui sera ajouté au vecteur a l'emplacement i
-                if ((i+1)%(m-1)!=0) {
-                     x=((i+1)/(m-1))+1;
-                     y=(i+1)%(m-1);
-                }
-                else {
-                    x=(i+1)/(m-1);
-                    y=m-1;
+                if ((i + 1) % (m - 1) != 0) {
+                    x = ((i + 1) / (m - 1)) + 1;
+                    y = (i + 1) % (m - 1);
+                } else {
+                    x = (i + 1) / (m - 1);
+                    y = m - 1;
                 }
 
                 // initialisation de la  case de b avec  f(Xi,Yj)
-                val = Func.calcVal(((double) x), ((double) y)), listeFunc);
+                val = Func.calcVal(((double) x), ((double) y), listeFunc);
                 // ajout  des Uoy et Uxo
-                if (x==1 && y==1){
-                    val=val+(tabY1[1]/H)+(tabX1[0]/K);
+                if (x == 1 && y == 1) {
+                    val = val + (tabY1[1] / H) + (tabX1[0] / K);
                 }
-                if (x==1 && y!=1){
-                    val=val+(tabY1[y]/H);
+                if (x == 1 && y != 1) {
+                    val = val + (tabY1[y] / H);
                 }
-                if (x!=1 && y==1){
-                    val=val+(tabX1[x-1]/K);
+                if (x != 1 && y == 1) {
+                    val = val + (tabX1[x - 1] / K);
                 }
 
-       // ajout dans le vecteur B
-                b.setAsDouble(val , i, 0);
+                // ajout dans le vecteur B
+                b.setAsDouble(val, i, 0);
 
             }
 
             // Remplissage de la matrice A
-            double valeur=2*((1/K)+(1/H));
+            double valeur = 2 * ((1 / K) + (1 / H));
 
-            for (int i = 0; i <= tailleb - 1; i++){
+            for (int i = 0; i <= tailleb - 1; i++) {
                 // remplissage de valeur sur LA Diagonale
-                A.setAsDouble(valeur , i, i);
+                A.setAsDouble(valeur, i, i);
                 // AJOUT SUR LES PREMIERES DIAGONALES INFERIEURS ET SUPERIEURES
-                if (i < tailleb-1) {
-                    A.setAsDouble((-1)/K, i + 1, i);
-                    A.setAsDouble((-1)/K, i, i + 1);
+                if (i < tailleb - 1) {
+                    A.setAsDouble((-1) / K, i + 1, i);
+                    A.setAsDouble((-1) / K, i, i + 1);
                 }
                 // AJOUT SUR LES (M-1) iemes DIAGONALES INFERIEURS ET SUPERIEURES
-                if (i < tailleb-(m-1)) {
-                    A.setAsDouble((-1)/H, i + (m-1), i);
-                    A.setAsDouble((-1)/H, i, i + (m-1));
+                if (i < tailleb - (m - 1)) {
+                    A.setAsDouble((-1) / H, i + (m - 1), i);
+                    A.setAsDouble((-1) / H, i, i + (m - 1));
                 }
 
             }
@@ -122,34 +121,48 @@ public class Solver implements SolverInterface {
 
     @Override
     public Matrix resolveGauss(String fonction, double[] tabX1, double[] tabX2, double[] tabY1, double[] tabY2, int n, int m) {
-        Matrix[] matrix = this.initMatrix(fonction, tabX1, tabX2, tabY1, tabY2, n, m);
+        try {
+            Matrix[] matrix = this.initMatrix(fonction, tabX1, tabX2, tabY1, tabY2, n, m);
 
-        if (matrix != null) {
-            Matrix A = matrix[0], b = matrix[1];
+            if (matrix != null) {
+                Matrix A = matrix[0], b = matrix[1];
 
-            //la méthode peut être écrite ici
-            
-            return null;
+                //la méthode peut être écrite ici
+                return null;
+            } else {
+                throw new UnsupportedOperationException("A et b non créés correctement");
+            }
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else{
-            throw new UnsupportedOperationException("A et b non créés correctement");
-        }
+        return null;
     }
 
     @Override
     public Matrix resolveRelaxation(String fonction, double[] tabX1, double[] tabX2, double[] tabY1, double[] tabY2, int n, int m) {
-        Matrix[] matrix = this.initMatrix(fonction, tabX1, tabX2, tabY1, tabY2, n, m);
-
-        if (matrix != null) {
-            Matrix A = matrix[0], b = matrix[1];
-
-            //la méthode peut être écrite ici
+        try {
+            Matrix[] matrix = this.initMatrix(fonction, tabX1, tabX2, tabY1, tabY2, n, m);
             
-            return null;
+            if (matrix != null) {
+                Matrix A = matrix[0], b = matrix[1];
+                
+                //la méthode peut être écrite ici
+                return null;
+            } else {
+                throw new UnsupportedOperationException("A et b non créés correctement");
+            }
+        } catch (IllegalAccessException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (IllegalArgumentException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (InvocationTargetException ex) {
+            Logger.getLogger(Solver.class.getName()).log(Level.SEVERE, null, ex);
         }
-        else{
-            throw new UnsupportedOperationException("A et b non créés correctement");
-        }
+        return null;
     }
 
 }

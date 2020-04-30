@@ -40,13 +40,13 @@ public class DonneeTest {
             double [] tabX1 = new double[n-1], tabX2 = new double[n-1], tabY1 = new double[m+1], tabY2 = new double[m+1];
             
             for (int i = 0; i < n-1; i++){
-                tabX1[i] = Func.calcVal(i + 1, 0, Func.calcFonction(resultatAttendu));
-                tabX2[i] = Func.calcVal(i + 1, m, Func.calcFonction(resultatAttendu));
+                tabX1[i] = Func.calcVal(((double) i + 1)/n, 0, Func.calcFonction(resultatAttendu));
+                tabX2[i] = Func.calcVal(((double) i + 1)/n, 1, Func.calcFonction(resultatAttendu));
             }
 
             for (int i = 0; i < m + 1; i++){
-                tabY1[i] = Func.calcVal(0, i, Func.calcFonction(resultatAttendu));
-                tabY2[i] = Func.calcVal(n, i, Func.calcFonction(resultatAttendu));
+                tabY1[i] = Func.calcVal(0, ((double) i)/m, Func.calcFonction(resultatAttendu));
+                tabY2[i] = Func.calcVal(1, ((double) i)/m, Func.calcFonction(resultatAttendu));
             }
             
             this.donneeEntree = new Params(func, tabX1, tabX2, tabY1, tabY2, n, m);

@@ -20,8 +20,9 @@ public class TestFuncs {
     public static int m1 = 10;
     public static int m2 = 200;
 
-    public static boolean convMail(String fonction) throws InstantiationException, IllegalAccessException, IllegalAccessException, ClassNotFoundException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
-        double[] PN = TestFuncs.calcPN(fonction, n1, n2, m1, m2, false);
+    public static boolean convMail(String fonction, boolean method) throws InstantiationException, IllegalAccessException, IllegalAccessException, ClassNotFoundException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException {
+        //methode=true si c'est la méthode de Gauss Seidel parralèle et false si c'est la relaxation.
+        double[] PN = TestFuncs.calcPN(fonction, n1, n2, m1, m2, method);
 
         if (PN[0] >= (2.0 - 10E-10)) {
             return true;
@@ -49,7 +50,7 @@ public class TestFuncs {
     }
 
     public static double[] calcPN(String fonction, int n1, int m1, int n2, int m2, boolean methode) throws InstantiationException, IllegalAccessException, NoSuchMethodException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException {
-        //methode=true s i c'est la méthode de Gauss Seidel parralèle et false si c'est la relaxation.
+        //methode=true si c'est la méthode de Gauss Seidel parralèle et false si c'est la relaxation.
 
         double err1 = TestFuncs.calcErreur(fonction, n1, m1, methode);
         double err2 = TestFuncs.calcErreur(fonction, n2, m2, methode);
@@ -65,13 +66,13 @@ public class TestFuncs {
         double[] tabX1 = new double[n1 - 1], tabX2 = new double[n1 - 1], tabY1 = new double[m1 + 1], tabY2 = new double[m1 + 1];
 
         for (int i = 0; i < n1 - 1; i++) {
-            tabX1[i] = Func.calcVal(i + 1, 0, Func.calcFonction(fonction));
-            tabX2[i] = Func.calcVal(i + 1, m1, Func.calcFonction(fonction));
+            tabX1[i] = Func.calcVal(((double) i+1)/n1, 0, Func.calcFonction(fonction));
+            tabX2[i] = Func.calcVal(((double) i+1)/n1, 1, Func.calcFonction(fonction));
         }
 
         for (int i = 0; i < m1 + 1; i++) {
-            tabY1[i] = Func.calcVal(0, i, Func.calcFonction(fonction));
-            tabY2[i] = Func.calcVal(n1, i, Func.calcFonction(fonction));
+            tabY1[i] = Func.calcVal(0, ((double) i)/m1, Func.calcFonction(fonction));
+            tabY2[i] = Func.calcVal(n1, ((double) i)/m1, Func.calcFonction(fonction));
         }
 
         Class solverInterface = Class.forName("laplacedim2.Solver");

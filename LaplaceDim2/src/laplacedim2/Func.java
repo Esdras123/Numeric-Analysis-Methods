@@ -22,6 +22,7 @@ public class Func {
     public double coef = 1.0;
     public Method method;
     public static String PREFIXE = "DR";
+
     public Func(Method method) {
         this.method = method;
     }
@@ -74,7 +75,7 @@ public class Func {
                 res += singularFunc[0] + ":" + Func.PREFIXE + singularFunc[1] + ";";
             }
         }
-        
+
         return res;
     }
 
@@ -87,8 +88,8 @@ public class Func {
 
         return res;
     }
-    /*
-    public static void traceCourbe() throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, InstantiationException{
+
+    public static void traceCourbe(boolean method) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, IllegalArgumentException, InvocationTargetException, ClassNotFoundException, InstantiationException {
         Scanner sc = new Scanner(System.in);
 
         System.out.println(Afficharge.titre("Comparaison de la solution exacte et de la solution approchée pour une fonction"));
@@ -98,22 +99,38 @@ public class Func {
 
         System.out.println("Entrez n");
         int n = sc.nextInt();
-        
-        double a = Func.calcVal(0, Func.calcFonction(func));
-        double b = Func.calcVal(1, Func.calcFonction(func));
-        
+
+        System.out.println("Entrez m");
+        int m = sc.nextInt();
+
+        double[] tabX1 = new double[n - 1], tabX2 = new double[n - 1], tabY1 = new double[m + 1], tabY2 = new double[m + 1];
+
+        for (int i = 0; i < n - 1; i++) {
+            tabX1[i] = Func.calcVal(((double) i+1)/m, 0, Func.calcFonction(func));
+            tabX2[i] = Func.calcVal(((double) i+1)/m, 1, Func.calcFonction(func));
+        }
+
+        for (int i = 0; i < m + 1; i++) {
+            tabY1[i] = Func.calcVal(0, ((double) i)/m, Func.calcFonction(func));
+            tabY2[i] = Func.calcVal(1, ((double) i)/m, Func.calcFonction(func));
+        }
+
         Class solverInterface = Class.forName("laplacedim2.Solver");
         SolverInterface solv = (SolverInterface) solverInterface.newInstance();
-        
-        String fonctionDerivee = Func.calcDerivee(func);
-        Matrix results1;
-        results1 = solv.resolveIterative(fonctionDerivee, a, b, n);
 
-        Graphe.traceMatrice(func, results1, n);
+        String fonctionDerivee = Func.calcDerivee(func);
+        Matrix results;
+        
+        if(method == true)
+            results = solv.resolveGauss(fonctionDerivee, tabX1, tabX2, tabY1, tabY2, n, m);
+        else
+            results = solv.resolveRelaxation(fonctionDerivee, tabX1, tabX2, tabY1, tabY2, n, m);
+        
+        Graphe.traceMatrice(func, results, n, m);
         //Graphe.traceErreurs(func, n1, n2, nb, false);
     }
 
-    public static void tracés() {
+    public static void tracés(boolean val) {
         Scanner sc = new Scanner(System.in);
 
         System.out.println(Afficharge.titre("Tracé de l'évolution des erreurs pour une fonction"));
@@ -127,30 +144,47 @@ public class Func {
         System.out.println("Entrez n2");
         int n2 = sc.nextInt();
 
-        System.out.println("Entrez l'intervalle d'écart");
-        int nb = sc.nextInt();
+        System.out.println("Entrez n1");
+        int m1 = sc.nextInt();
 
-        Graphe.traceErreurs(func, n1, n2, nb, false, "Tracé des erreurs en fonction de h");
-        //Graphe.traceErreurs(func, n1, n2, nb, false);
+        System.out.println("Entrez n2");
+        int m2 = sc.nextInt();
+        
+        System.out.println("Entrez l'intervalle d'écart pour l'axe des abscisses");
+        int nbX = sc.nextInt();
+        
+        System.out.println("Entrez l'intervalle d'écart pour l'axe des ordonnées");
+        int nbY = sc.nextInt();
+
+        if(val)
+            Graphe.traceErreurs(func, n1, m1, n2, m2, nbX, nbY, true, "Tracé des erreurs en fonction de h et de k");
+        else
+            Graphe.traceErreurs(func, n1, m1, n2, m2, nbX, nbY, false, "Tracé des erreurs en fonction de h et de k");
     }
     
     public static void calculPAlpha() {
         try {
             System.out.println(Afficharge.titre("Détermination de la vitesse de convergence"));
             Scanner sc = new Scanner(System.in);
-            
+
             System.out.println("Entrez la fonction resultatAttendu (en suivant la convention)");
             String func = sc.next();
-            
+
             System.out.println("Entrez n1");
             int n1 = sc.nextInt();
-            
+
             System.out.println("Entrez n2");
             int n2 = sc.nextInt();
-            
-            //double[] valsDir = TestFuncs.calcPN(func, n1, n2, true);
-            double[] valsIter = TestFuncs.calcPN(func, n1, n2, false);
-            System.out.println("Fonction U réelle: " + func + " ; Methode Iterative: " + "p = " + valsIter[0] + " Log alpha = " + valsIter[1]);
+
+            System.out.println("Entrez m1");
+            int m1 = sc.nextInt();
+
+            System.out.println("Entrez m2");
+            int m2 = sc.nextInt();
+
+            double[] valsGaussPar = TestFuncs.calcPN(func, n1, m1, n2, m2, true);
+            double[] valsRelax = TestFuncs.calcPN(func, n1, m1, n2, m2, true);
+            System.out.println("Fonction U réelle: " + func + " ; Methode Gauss Parallèle: " + "p = " + valsGaussPar[0] + " Log alpha = " + valsGaussPar[1] + " ; Methode Relaxation: " + "p = " + valsRelax[0] + " Log alpha = " + valsRelax[1]);
         } catch (InstantiationException ex) {
             Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
@@ -165,5 +199,4 @@ public class Func {
             Logger.getLogger(DifferencesFinies.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    */
 }

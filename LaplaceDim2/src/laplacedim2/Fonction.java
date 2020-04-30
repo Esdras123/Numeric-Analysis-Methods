@@ -12,7 +12,7 @@ package laplacedim2;
 public class Fonction {
 
     /*classe contenant l'ensemble des fonctions à tester. Chaque fonction est 
-    statique et a un deux paramètres qui sont double
+    statique et a deux paramètres qui sont double
      */
 
     //Fonctions
@@ -169,39 +169,4 @@ public class Fonction {
         return (Math.pow(x, 2) + Math.pow(y, 2)) * Math.cos(x * y);
     }
 
-    public static double sinProduit(double x, double y){
-        return (Math.pow(x, 2) + Math.pow(y, 2)) * Math.sin(x * y);
-    }
-
-    public static double expx(double x, double y){
-        return - Math.exp(x);
-    }
-
-    public static double expy(double x, double y){
-        return - Math.exp(y);
-    }
-
-    public static double expSomme(double x, double y){
-        return -2.0 * Math.exp(x * y);
-    }
-
-    public static double expProduit(double x, double y){
-        return -((Math.pow(x, 2) + Math.pow(y, 2)) * Math.exp(x * y));
-    }
-
-    public static double lnx(double x, double y) {
-        return 1.0 / Math.pow(x, 2);
-    }
-
-    public static double lny(double x, double y) {
-        return 1.0 / Math.pow(y, 2);
-    }
-
-    public static double lnSomme(double x, double y) {
-        return 2.0 / Math.pow(x + y, 2);
-    }
-
-    public static double lnProduit(double x, double y) {
-        return ( 1.0 / Math.pow(x, 2) + 1.0 / Math.pow(y, 2) );
-    }
 }

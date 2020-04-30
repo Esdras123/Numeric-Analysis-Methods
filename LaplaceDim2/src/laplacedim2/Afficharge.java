@@ -38,7 +38,7 @@ public class Afficharge {
         return sb.toString();
     }
 
-    public static String creerLigne(String a, String b, String c, String tol, String ra, String ft, String oracleIter) {
+    public static String creerLigne(String a, String b, String c, String tol, String ra, String ft, String oracleDirecte, String oracleIter) {
         String affiche = "";
         StringBuilder sb = new StringBuilder();
         sb.append("| ");
@@ -65,11 +65,11 @@ public class Afficharge {
         sb.append(ft);
         sb.append(espaces(27 - ft.length()));
 
-        /*
+        
         sb.append("| ");
         sb.append(oracleDirecte);
         sb.append(espaces(8 - oracleDirecte.length()));
-        */
+        
         
         sb.append("| ");
         sb.append(oracleIter);

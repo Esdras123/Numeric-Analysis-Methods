@@ -13,7 +13,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
-import org.ujmp.core.DenseMatrix;
 import org.ujmp.core.Matrix;
 
 /**
@@ -22,23 +21,19 @@ import org.ujmp.core.Matrix;
  */
 public class Graphe {
 
-    public static void traceMatrice(String fonction, Matrix solObt, int n) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
-        double[] valeursReelle = new double[n + 1], valeursObtenues = new double[n + 1], valAbscisse = new double[n + 1];
+    public static void traceMatrice(String fonction, Matrix solObt, int n, int m) throws NoSuchMethodException, IllegalAccessException, IllegalArgumentException, InvocationTargetException {
 
-        for (int i = 0; i < n - 1; i++) {
-            valAbscisse[i + 1] = ((double) i+1) / n;
-            valeursReelle[i + 1] = Func.calcVal(((double) i + 1) / n, Func.calcFonction(fonction));
-            valeursObtenues[i + 1] = solObt.getAsDouble(i, 0);
-            //System.out.println("val Reelle = " + valeursReelle[i+1] + "Val Obtenue = " +valeursObtenues[i+1]);
+        double[][] matrix = new double[m + 1][n + 1];
+        for (int i = 0; i < n + 1; i++) {
+            for (int j = 0; j < m + 1; j++) {
+                matrix[i][j] = solObt.getAsDouble(i, j) - Func.calcVal(((double) i) / n, ((double) j) / m, Func.calcFonction(fonction));
+            }
         }
-        valeursReelle[0] = Func.calcVal(0, Func.calcFonction(fonction));
-        valeursReelle[n] = Func.calcVal(1, Func.calcFonction(fonction));
-        valeursObtenues[0] = valeursReelle[0];
-        valeursObtenues[n] = valeursReelle[n];
-        valAbscisse[0] = 0;
-        valAbscisse[n] = 1;
-        //tracé des deux fonctions sur un meme graphique
-        Graphe.traceGraphes(valAbscisse, valeursObtenues, valeursReelle, "obtenu", "attendu", "x", "y");
+
+        //Syef met les paramètres qui vont entrer dans ton way de graphe la ici
+        //tous les elements sont dans la matrice, fait une fonction qui va permettre de trouver le min et le max
+        //et tu passes ca en paramètre, bref trouve un moyen d'integrer en passant par la méthode ci dessous que tu peux modifier a ta guise
+        Graphe.traceGraphes(matrix, valeursObtenues, valeursReelle, "obtenu", "attendu", "x", "y");
     }
 
     public static void traceGraphes(double[] abscisse, double[] valCourbe1, double[] valCourbe2, String titre1, String titre2, String titreX, String titreY) {
@@ -117,27 +112,48 @@ public class Graphe {
         primaryStage.show();
     }
 
-    public static void traceErreurs(String fonction, int n1, int n2, int nb, boolean methode, String titreFig) {
+    public static void traceErreurs(String fonction, int n1, int m1, int n2, int m2, int nbX, int nbY, boolean methode, String titreFig) {
         //methode=true si cest la méthode directe et methode= false sinon
         //génère la courbe de l'erreur pour un nombre de points quittant de n1 a n2 par pas de nb
 
         try {
-            int p = ((n2 - n1) / nb);
-            double[] valAbs = new double[p + 1], erreurs = new double[p + 1];
+            int p = ((n2 - n1) / nbX);
+            int q = ((m2 - m1) / nbY);
 
-            int index = 0;
-            for (int i = n1; i <= n2; i += nb) {
+            double[] valAbs = new double[p + 1], valOrd = new double[q + 1], erreurs[] = new double[p + 1][q + 1];
 
-                valAbs[index] = i;
-                erreurs[index] = Math.log(TestFuncs.calcErreur(fonction, i, methode));
-                index++;
+            int indexX = 0;
+            int indexY = 0;
+
+            for (int i = n1; i <= n2; i += nbX) {
+                valAbs[indexX] = i;
+                indexX++;
+            }
+            for (int j = m1; j <= m2; j += nbY) {
+                valOrd[indexY] = j;
+                indexY++;
+            }
+
+            indexX = 0;
+            indexY = 0;
+
+            for (int i = n1; i <= n2; i += nbX) {
+                for (int j = m1; i <= m2; i += nbY) {
+
+                    erreurs[indexX][indexY] = Math.log(TestFuncs.calcErreur(fonction, i, j, methode));
+                    indexY++;
+                }
+                indexY = 0;
+                indexX++;
             }
             String titre = "Methode directe";
             if (!methode) {
                 titre = "Methode itérative";
             }
-            Graphe.traceGraphe(valAbs, erreurs, fonction, "h", "log erreurs", titreFig);
 
+            //Syef tu dois faire une courbe 3D ici, abscisse valAbs, ordonneé valOrd, fonction: erreurs
+            //donc modifie la ligne qui suit là tu crées ta méthode, je vais t'envoyer les ressources pour le faire
+            //Graphe.traceGraphe(valAbs, erreurs, fonction, "h", "log erreurs", titreFig);
         } catch (NoSuchMethodException ex) {
             Logger.getLogger(Graphe.class.getName()).log(Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
@@ -152,4 +168,5 @@ public class Graphe {
             Logger.getLogger(Graphe.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+
 }
