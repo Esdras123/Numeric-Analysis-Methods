@@ -44,7 +44,6 @@ public class Afficharge {
         sb.append("| ");
         sb.append(a);
         sb.append(espaces(29 - a.length()));
-
         sb.append("| ");
         sb.append(b);
         sb.append(espaces(17 - b.length()));
