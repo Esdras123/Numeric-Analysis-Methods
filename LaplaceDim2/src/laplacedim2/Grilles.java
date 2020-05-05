@@ -5,6 +5,7 @@
  */
 package laplacedim2;
     
+import java.io.IOException;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -15,21 +16,89 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class Grilles extends Application {
-    private static final int TILE_SIZE = 20;
-    private static final int W = 800;
-    private static final int H = 600;
+    private static int TILE_SIZE = 20;
+    private static int W = 800;
+    private static int H = 600;
 
-    private static final int N = 20;
-    private static final int M = 25;
-    private static final double Min = 10;
-    private static final double Max = 1000;
+    private static int N = 20;
+    private static int M = 25;
+    private static double Min = 10;
+    private static double Max = 1000;
     private static double [][] Matrix = new double[N][M]; 
     private Scene scene;
+    private Stage primaryStage;
 
+    public Grilles() {
+    }
+
+    public static int getTILE_SIZE() {
+        return TILE_SIZE;
+    }
+
+    public static void setTILE_SIZE(int TILE_SIZE) {
+        Grilles.TILE_SIZE = TILE_SIZE;
+    }
+
+    public static int getW() {
+        return W;
+    }
+
+    public static void setW(int W) {
+        Grilles.W = W;
+    }
+
+    public static int getH() {
+        return H;
+    }
+
+    public static void setH(int H) {
+        Grilles.H = H;
+    }
+
+    public static int getN() {
+        return N;
+    }
+
+    public static void setN(int N) {
+        Grilles.N = N;
+    }
+
+    public static int getM() {
+        return M;
+    }
+
+    public static void setM(int M) {
+        Grilles.M = M;
+    }
+
+    public static double getMin() {
+        return Min;
+    }
+
+    public static void setMin(double Min) {
+        Grilles.Min = Min;
+    }
+
+    public static double getMax() {
+        return Max;
+    }
+
+    public static void setMax(double Max) {
+        Grilles.Max = Max;
+    }
+
+    public static double[][] getMatrix() {
+        return Matrix;
+    }
+
+    public static void setMatrix(double[][] Matrix) {
+        Grilles.Matrix = Matrix;
+    }
+    
     private Parent createContent() {
         Pane root = new Pane();
         root.setPrefSize(W, H);
-        this.Matrix = initMatrix();
+       // this.Matrix = initMatrix(); si on decommente ce code on pourra initialiser la matrice donc du coup permettre d executer la matrice
         for (int y = 0; y < M-1; y++) {
             for (int x = 0; x < N-1; x++) {
                 Tile tile = new Tile(x, y);
@@ -88,11 +157,26 @@ public class Grilles extends Application {
     }
 
     @Override
-    public void start(Stage stage) throws Exception {
-        scene = new Scene(createContent());
+    public void start(Stage primaryStage) throws Exception {
 
-        stage.setScene(scene);
-        stage.show();
+        this.primaryStage = primaryStage;
+        this.primaryStage.setTitle("FileExpress");
+        
+        initRootLayout();
+    }
+    
+            
+
+       
+        
+     public void initRootLayout(){
+            
+            // Show the scene containing the root layout.
+            scene = new Scene(createContent());
+            primaryStage.setScene(scene);
+
+            primaryStage.show();
+
     }
 
     public static void main(String[] args) {

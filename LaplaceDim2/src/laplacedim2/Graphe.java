@@ -15,6 +15,8 @@ import javafx.scene.chart.XYChart;
 import javafx.stage.Stage;
 import org.ujmp.core.Matrix;
 
+import laplacedim2.Grilles;
+
 /**
  *
  * @author ESDRAS
@@ -29,11 +31,19 @@ public class Graphe {
                 matrix[i][j] = solObt.getAsDouble(i, j) - Func.calcVal(((double) i) / n, ((double) j) / m, Func.calcFonction(fonction));
             }
         }
+        // pas besoin de min et max ici la classe Grilles calcule deja ces valeurs
+        Grilles grilles = new Grilles();
+        grilles.setN(n);
+        grilles.setM(m);
+        grilles.setMatrix(matrix);
+        
+        
+        grilles.initRootLayout();
 
         //Syef met les paramètres qui vont entrer dans ton way de graphe la ici
         //tous les elements sont dans la matrice, fait une fonction qui va permettre de trouver le min et le max
         //et tu passes ca en paramètre, bref trouve un moyen d'integrer en passant par la méthode ci dessous que tu peux modifier a ta guise
-        Graphe.traceGraphes(matrix, valeursObtenues, valeursReelle, "obtenu", "attendu", "x", "y");
+        //Graphe.traceGraphes(matrix, valeursObtenues, valeursReelle, "obtenu", "attendu", "x", "y");
     }
 
     public static void traceGraphes(double[] abscisse, double[] valCourbe1, double[] valCourbe2, String titre1, String titre2, String titreX, String titreY) {
